@@ -7,13 +7,15 @@ import { FooterComponent } from './footer/footer.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { ResidencesComponent } from './residences/residences.component';
+import { AppartmentComponent } from './appartment/appartment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
     NavComponent,
-    ResidencesComponent
+    ResidencesComponent,
+    AppartmentComponent
   ],
   imports: [
     BrowserModule,

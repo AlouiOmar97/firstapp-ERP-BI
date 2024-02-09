@@ -1,0 +1,17 @@
+<h1>List of Appartements!</h1>
+<label for="surface">Search by surface</label>
+<input type="number" id="surface" [(ngModel)]="searchSurface"/>
+<div>
+    <hr>
+    <div *ngFor="let a of appartementsList" >
+        <div *ngIf="a.surface<=searchSurface">
+            <p>
+                <b>Terrase : </b>  {{a.terrasse}}
+            </p>
+            <p>
+               <b>Surface : </b>  {{a.surface}}
+           </p>
+           <hr>
+        </div>
+    </div>
+</div>

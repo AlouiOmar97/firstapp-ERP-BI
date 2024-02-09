@@ -15,6 +15,6 @@
 <div>
     <p *ngFor="let a of selectedAppartments" >
         {{ a.terrasse }}
-        <button [disabled]="!a.status" >Buy</button>
+        <button (click)="BuyAppartment(a.id)" [disabled]="!a.status" >Buy</button>
     </p>
 </div>

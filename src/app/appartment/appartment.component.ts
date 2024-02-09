@@ -1,16 +1,14 @@
 import { Component } from '@angular/core';
-import { Residence } from '../core/models/residence';
 import { Appartement } from '../core/models/appartement';
+import { Residence } from '../core/models/residence';
 
 @Component({
-  selector: 'app-residences',
-  templateUrl: './residences.component.html',
-  styleUrls: ['./residences.component.css']
+  selector: 'app-appartment',
+  templateUrl: './appartment.component.html',
+  styleUrls: ['./appartment.component.css']
 })
-export class ResidencesComponent {
-  x: boolean=true
-  selectedResidence!:number
-  selectedAppartments!: Appartement[]
+export class AppartmentComponent {
+  searchSurface!:number
   residencesList: Residence[]=[ 
 
     {id: 1, name: "Residence 1", address: "Address 1", image:"image 1"}, 
@@ -41,20 +39,4 @@ export class ResidencesComponent {
 
   ] 
 
-  DisplaySelectedAppartment(){
-    let applist: Appartement[]=[]
-    for (let i = 0; i < this.appartementsList.length; i++) {
-      if(this.selectedResidence==this.appartementsList[i].residence.id){
-        applist.push(this.appartementsList[i])
-      }
-    }
-    this.selectedAppartments=applist
-  }
-  BuyAppartment(id:number){
-    for (let i = 0; i < this.appartementsList.length; i++) {
-      if(this.appartementsList[i].id==id){
-        this.appartementsList[i].status=false
-      }
-    }
-  }
 }

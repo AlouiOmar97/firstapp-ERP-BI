@@ -1,16 +1,17 @@
-<p>residences works!</p>
-<ul>
-    <li *ngFor="let r of residencesList" >
-        <p *ngIf="r.id!=2" >
+<h2>Residence List!</h2>
+<ul class="list-group" >
+    <li class="list-group-item" *ngFor="let r of residencesList" >
+        <p *ngIf="r.id!=22" >
             {{ r.name | uppercase | lowercase }}
-        </p>
+            <a [routerLink]="['/residence/',r.id]">Details</a>
+        </p>    
     </li>
     <h2>List of Appartement</h2>
     <p *ngIf="selectedResidence" >Selected Residence: <b>{{ selectedResidence }} </b></p>
     <select [(ngModel)]="selectedResidence" >
         <option *ngFor="let r of residencesList" value="{{r.id}}">{{ r.name }}</option>
     </select>
-    <button (click)="DisplaySelectedAppartment()" >Display Appartements</button>
+    <button class="btn btn-primary" (click)="DisplaySelectedAppartment()" >Display Appartements</button>
 </ul>
 <div>
     <p *ngFor="let a of selectedAppartments" >

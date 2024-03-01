@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Appartement } from '../core/models/appartement';
 import { Residence } from '../core/models/residence';
+import { AppartmentService } from '../services/appartment.service';
 
 @Component({
   selector: 'app-appartment',
@@ -8,7 +9,7 @@ import { Residence } from '../core/models/residence';
   styleUrls: ['./appartment.component.css']
 })
 export class AppartmentComponent {
-  searchSurface!:number
+  searchSurface:number=600
   residencesList: Residence[]=[ 
 
     {id: 1, name: "Residence 1", address: "Address 1", image:"image 1"}, 
@@ -38,5 +39,18 @@ export class AppartmentComponent {
  
 
   ] 
+
+  constructor(private appartService: AppartmentService){}
+
+  ngOnInit(){
+    this.appartService.findAllAppartment().subscribe((data)=>{
+      this.appartementsList=data
+    })
+  }
+
+  deleteAppart(id:number){
+    this.appartService.deleteAppartment(id)
+    .subscribe(()=>{console.log('appartment deleted !')})
+  }
 
 }

@@ -1,0 +1,21 @@
+<div class="container">
+    <h1>Add Appartment</h1>
+    <form [formGroup]="addAppartForm" >
+        <div class="row mb-3">
+          <label for="terasse" class="col-sm-2 col-form-label">Terasse</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="terasse" id="terasse">
+            <div *ngIf="terasse!.dirty && terasse!.errors?.['required']" class="alert alert-danger m-2" >Terasse is required</div>
+            <div *ngIf="terasse!.touched && terasse!.errors?.['minlength']" class="alert alert-danger m-2" >Terasse must have at least 3 caracters</div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="numAppart" class="col-sm-2 col-form-label">Appartment NB</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" formControlName="numAppart" id="numAppart">
+            <div *ngIf="numAppart!.touched && numAppart!.errors?.['required']" class="alert alert-danger m-2" >Appartment Number is required</div>
+        </div>
+        </div>
+        <button type="submit" (click)="addAppartment()" [disabled]="addAppartForm.invalid"  class="btn btn-primary">Add</button>
+      </form>
+</div>
